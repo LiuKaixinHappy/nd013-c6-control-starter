@@ -336,8 +336,12 @@ int main ()
           * TODO (step 2): compute the throttle error (error_throttle) from the position and the desired speed
           **/
           // modify the following line for step 2
-          double target_velocity = v_points[0];
-          error_throttle = target_velocity - velocity;
+          double target_velocity = v_points.back();
+          double velocity_error = target_velocity - velocity;
+          // Scale the velocity error to fit within the range [-1, 1].
+          // A velocity error of 10 would result in a throttle output of 1
+          error_throttle = velocity_error / 10;
+          error_throttle = std::max(-1.0, std::min(1.0, error_throttle));
 
 
           double throttle_output;
