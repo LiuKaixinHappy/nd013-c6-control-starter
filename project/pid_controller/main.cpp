@@ -302,8 +302,9 @@ int main ()
           /**
           * TODO (step 3): compute the steer error (error_steer) from the position and the desired trajectory
           **/
-          error_steer = angle_between_points(waypoint_y, y_position, waypoint_x, x_position) - yaw;
-
+          // Calculate the angle between the target position and the current position, and then calculate the steering angle error
+          error_steer = angle_between_points(y_points.back(), y_position, x_points.back(), x_position) - yaw;
+          error_steer = std::max(-1.2, std::min(1.2, error_steer));
           /**
           * TODO (step 3): uncomment these lines
           **/
