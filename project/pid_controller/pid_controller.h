@@ -34,7 +34,7 @@ public:
     /*
     * Delta time
     */
-    double delta_time;
+    double delta_time_;
     /*
     * Constructor
     */
