@@ -337,7 +337,7 @@ int main ()
           **/
           // modify the following line for step 2
           double target_velocity = v_points[0];
-          double error_throttle = target_velocity - velocity;
+          error_throttle = target_velocity - velocity;
 
 
           double throttle_output;
