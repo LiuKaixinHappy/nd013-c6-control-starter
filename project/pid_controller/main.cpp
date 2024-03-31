@@ -306,7 +306,7 @@ int main ()
           double dis_min = 99999999999999;
           int close_id = 0;
           for (int i = 0; i < x_points.size(); i++) {
-            double act_dis = pow((x_position - x_points[i]), 2) + pow((y_position - y_points[i]), 2)
+            double act_dis = pow((x_position - x_points[i]), 2) + pow((y_position - y_points[i]), 2);
             if (act_dis < dis_min) {
                 dis_min = act_dis;
                 close_id = i;
