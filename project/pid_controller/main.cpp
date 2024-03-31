@@ -219,7 +219,7 @@ int main ()
   * TODO (Step 1): create pid (pid_steer) for steer command and initialize values
   **/
   PID pid_steer = PID();
-  pid_steer.Init(0.5, 0, 0, 0.5, -0.5);
+  pid_steer.Init(0.2, 0.001, 0.5, 1.2, -1.2);
 
   // initialize pid throttle
   /**
@@ -303,7 +303,16 @@ int main ()
           * TODO (step 3): compute the steer error (error_steer) from the position and the desired trajectory
           **/
           // Calculate the angle between the target position and the current position, and then calculate the steering angle error
-          error_steer = angle_between_points(y_points.back(), y_position, x_points.back(), x_position) - yaw;
+          double dis_min = 99999999999999;
+          int close_id = 0;
+          for (int i = 0; i < x_points.size(), i++) {
+            double act_dis = pow((x_position - x_points[i]), 2) + pow((y_position - y_points[i]), 2)
+            if (act_dis < dis_min) {
+                dis_min = act_dis;
+                close_id = i;
+            }
+          }
+          error_steer = angle_between_points(y_points[close_id], y_position, x_points[close_id], x_position) - yaw;
           error_steer = std::max(-1.2, std::min(1.2, error_steer));
           /**
           * TODO (step 3): uncomment these lines
@@ -337,7 +346,7 @@ int main ()
           * TODO (step 2): compute the throttle error (error_throttle) from the position and the desired speed
           **/
           // modify the following line for step 2
-          double target_velocity = v_points.back();
+          double target_velocity = v_points[close_id];
           double velocity_error = target_velocity - velocity;
           // Scale the velocity error to fit within the range [-1, 1].
           // A velocity error of 10 would result in a throttle output of 1
