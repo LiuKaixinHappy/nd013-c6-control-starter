@@ -349,7 +349,7 @@ int main ()
           double target_velocity = v_points[close_id];
           double velocity_error = target_velocity - velocity;
           // Scale the velocity error to fit within the range [-1, 1].
-          error_throttle = std::max(-1.0, std::min(1.0, error_throttle));
+          error_throttle = std::max(-1.0, std::min(1.0, velocity_error));
 
 
           double throttle_output;
