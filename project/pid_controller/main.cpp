@@ -220,14 +220,15 @@ int main ()
   **/
   PID pid_steer = PID();
 //  pid_steer.Init(0.01, 0.001, 0.005, 1.2, -1.2);
-  pid_steer.Init(0.02, 0.001, 0.005, 1.2, -1.2);
+//  pid_steer.Init(0.02, 0.001, 0.005, 1.2, -1.2);
+  pid_steer.Init(0.05, 0.001, 0.005, 1.2, -1.2);
 
   // initialize pid throttle
   /**
   * TODO (Step 1): create pid (pid_throttle) for throttle command and initialize values
   **/
   PID pid_throttle = PID();
-  pid_throttle.Init(0.02, 0.001, 0.005, 1, -1);
+  pid_throttle.Init(0.2, 0.04, 0.05, 1, -1);
 
 
 
