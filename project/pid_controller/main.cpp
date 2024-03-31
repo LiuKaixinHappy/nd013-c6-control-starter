@@ -227,7 +227,7 @@ int main ()
   * TODO (Step 1): create pid (pid_throttle) for throttle command and initialize values
   **/
   PID pid_throttle = PID();
-  pid_throttle.Init(0.2, 0.001, 0.001, 1, -1);
+  pid_throttle.Init(0.02, 0.001, 0.005, 1, -1);
 
 
 
