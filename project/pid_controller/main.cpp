@@ -221,7 +221,7 @@ int main ()
   PID pid_steer = PID();
 //  pid_steer.Init(0.01, 0.001, 0.005, 1.2, -1.2);
 //  pid_steer.Init(0.02, 0.001, 0.005, 1.2, -1.2);
-  pid_steer.Init(0.05, 0.001, 0.005, 1.2, -1.2);
+  pid_steer.Init(0.05, 0.01, 0.5, 1.2, -1.2);
 
   // initialize pid throttle
   /**
