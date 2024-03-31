@@ -46,7 +46,7 @@ double PID::TotalError() {
    * TODO: Calculate and return the total error
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
-    double control = -(Kp_ * cte_curr + Ki_ * cte_int + Kd_ * cte_diff);
+    double control = Kp_ * cte_curr + Ki_ * cte_int + Kd_ * cte_diff;
     if (control > output_lim_max_) {
         control = output_lim_max_;
     } else if (control < output_lim_min_) {
