@@ -350,7 +350,6 @@ int main ()
           double velocity_error = target_velocity - velocity;
           // Scale the velocity error to fit within the range [-1, 1].
           // A velocity error of 10 would result in a throttle output of 1
-          error_throttle = velocity_error / 10;
           error_throttle = std::max(-1.0, std::min(1.0, error_throttle));
 
 
